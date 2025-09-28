@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Rust WebAssembly Demo</title>
+    <script src="./pkg/wasm_pack_world.js"></script>
+    <script>
+        async function run() {
+            await wasm_bindgen({module_or_path: './pkg/wasm_pack_world_bg.wasm'});
+            const answer = wasm_bindgen.get_me_universe_answer();
+            document.getElementById('result').textContent = '宇宙的答案是: ' + answer;
+        }
+
+        window.addEventListener('load', run);
+    </script>
+</head>
+<body>
+    <h1>Rust WebAssembly 示例</h1>
+    <div id="result">加载中...</div>
+</body>
+</html>
